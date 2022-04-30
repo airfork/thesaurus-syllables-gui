@@ -1,0 +1,11 @@
+<mat-form-field id="word-search" appearance="fill">
+  <mat-label>Search Term</mat-label>
+  <input
+    matInput
+    placeholder="sanguine"
+    type="text"
+    autocomplete="off"
+    [(ngModel)]="search"
+    (ngModelChange)="emitSearch()"
+  />
+</mat-form-field>

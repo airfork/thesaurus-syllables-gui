@@ -1,0 +1,49 @@
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <!-- Word Column -->
+  <ng-container matColumnDef="word">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header="word"
+      sortActionDescription="Sort by word"
+    >
+      Word
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element.word }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="syllables">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header="numSyllables"
+      sortActionDescription="Sort by syllable count"
+    >
+      Syllable Count
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element.numSyllables }}</td>
+  </ng-container>
+
+  <!-- Score Column -->
+  <ng-container matColumnDef="score">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header="score"
+      sortActionDescription="Sort by score"
+    >
+      Score
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element.score }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator
+  [pageSizeOptions]="[10, 20, 50]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>
